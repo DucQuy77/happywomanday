@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal show</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <button class="open-modal-btn">Tap here please !</button>
+    <div class="modal hide">
+        <div class="modal_inner">
+            <div class="modal_inner-tabs">
+                <!-- Tab items -->
+                <div class="tabs">
+                  <div class="tab-item active">
+                    <i class="tab-icon fas fa-code"></i>
+                    Hello
+                  </div>
+                  <div class="tab-item">
+                    <i class="tab-icon fas fa-cog"></i>
+                    Tap here again
+                  </div>
+                  <div class="tab-item">
+                    <i class="tab-icon fas fa-plus-circle"></i>
+                    Next ?
+                  </div>
+                  <div class="tab-item">
+                    <i class="tab-icon fas fa-pen-nib"></i>
+                    Ok 
+                  </div>
+                  <div class="line"></div>
+                </div>
+              
+                <!-- Tab content -->
+                <div class="tab-content">
+                  <div class="tab-pane active">
+                    <h2>Hello</h2>
+                    <p>Chúc bạn 8/3 vui vẻ</p> <br>
+                    <p>Chắc hẳn bạn đã có một ngày tuyệt vời và đáng nhớ  Chúc bạn sẽ luôn xinh đẹp , thành công trong công việc nhé</p>
+                  </div>
+                  <div class="tab-pane">
+                    <h2>!!!</h2>
+                    <p>Đây là "món quà nhỏ" mình làm vì muốn lời chúc trở nên độc đáo 1 tý </p>
+                  </div>
+                  <div class="tab-pane">
+                    <p>Vậy nên, hy vọng bạn sẽ thích món quà này của mình</p>
+                  </div>
+                  <div class="tab-pane">
+                    <h2>Bye bye</h2>
+                    <p>Đây là 1 câu tiếng nước ngoài. Hãy thử dịch nó nhé : 앞으로 또 만나요</p>
+                  </div>
+                </div>
+              </div>
+              <div class="modal__footer">
+                <button>Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/index.js"></script>
+    <script>
+         const $ = document.querySelector.bind(document);
+          const $$ = document.querySelectorAll.bind(document);
+
+          const tabs = $$('.tab-item')
+          const panes = $$('.tab-pane')
+
+          const tabActive = $('.tab-item.active')
+          const line = $('.tabs .line')
+          
+          line.style.left = tabActive.offsetLeft + 'px'
+          line.style.width = tabActive.offsetWidth + 'px'
+
+          tabs.forEach((tab, index)=>{
+            const pane = panes [index]
+
+
+            tab.onclick = function(){
+
+
+                $('.tab-item.active').classList.remove('active')
+                $('.tab-pane.active').classList.remove('active')
+
+                line.style.left = this.offsetLeft + 'px'
+                line.style.width = this.offsetWidth + 'px'
+
+                this.classList.add('active')
+                pane.classList.add('active')
+              }
+          })
+    </script>
+</body>
+</html>
